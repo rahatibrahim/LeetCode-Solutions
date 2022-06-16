@@ -10,14 +10,14 @@ import java.util.Set;
 // @lc code=start
 
 // Definition for singly-linked list.
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode(int x) {
-        val = x;
-        next = null;
-    }
-}
+// class ListNode {
+//     int val;
+//     ListNode next;
+//     ListNode(int x) {
+//         val = x;
+//         next = null;
+//     }
+// }
 
 class LinkedListCycle { // change the class name
     public boolean hasCycle(ListNode head) {
