@@ -2,26 +2,42 @@ import java.util.Stack;
 
 public class ValidParenthesis {
     public boolean isValid(String s) {
-        Stack<Character> stack = new Stack<>();
+        Stack<Character> q = new Stack<>();
+
         for (int i = 0; i < s.length(); i++) {
-            char a = s.charAt(i);
-            if (a == '(' || a == '{' || a == '[') {
-                stack.push(a);
-            } else if (stack.isEmpty()) {
-                return false;
-            } else if (a == ')' && stack.pop() != '(') {
-                return false;
-            } else if (a == '}' && stack.pop() != '{') {
-                return false;
-            } else if (a == ']' && stack.pop() != '[') {
-                return false;
+            switch (s.charAt(i)) {
+                case '(':
+                    q.push('(');
+                    break;
+                case '{':
+                    q.push('{');
+                    break;
+                case '[':
+                    q.push('[');
+                    break;
+                case ')':
+                    if (q.empty() || q.pop() != '(')
+                        return false;
+                    break;
+                case '}':
+                    if (q.empty() || q.pop() != '{')
+                        return false;
+                    break;
+                case ']':
+                    if (q.empty() || q.pop() != '[')
+                        return false;
+                    break;
             }
         }
-        return stack.isEmpty();
+
+        if (q.empty()) {
+            return true;
+        }
+        return false;
     }
 
     public static void main(String[] args) {
         ValidParenthesis s = new ValidParenthesis();
-        System.out.println(s.isValid("(())"));
+        System.out.println(s.isValid("(([]))"));
     }
 }
