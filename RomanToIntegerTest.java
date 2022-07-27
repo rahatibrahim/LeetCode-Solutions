@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=13 lang=java
- *
- * [13] Roman to Integer
- */
-
-// @lc code=start
 class RomanToInteger {
     public static int romanToInt(String s) {
         int total = 0;
@@ -55,7 +48,6 @@ class RomanToInteger {
     }
 }
 
-// @lc code=end
 public class RomanToIntegerTest {
     public static void main(String[] args) {
         System.out.println(RomanToInteger.romanToInt("III"));
