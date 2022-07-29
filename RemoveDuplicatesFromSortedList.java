@@ -1,9 +1,13 @@
-import Node.ListNode;
-
 public class RemoveDuplicatesFromSortedList {
     public ListNode deleteDuplicates(ListNode head) {
-        
+        if (head == null) return null;
+        ListNode temp = head;
 
-        return null;
+        while (head.next != null) {
+            if (head.val == head.next.val) head.next = head.next.next;
+            else head = head.next;
+        }
+
+        return temp;
     }
 }
