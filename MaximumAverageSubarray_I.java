@@ -1,26 +1,18 @@
 public class MaximumAverageSubarray_I {
     public static double findMaxAverage(int[] nums, int k) {
-        double maxAvSum = 0;
-        double currAvSum = 0;
+        double maxSum = 0;
         double sum = 0;
-
-        int a_runner = 0;
 
         for (int i = 0; i < k; i++) {
             sum += nums[i];
         }
-        maxAvSum = sum / k;
+        maxSum = sum;
 
         for (int i = k; i < nums.length; i++) {
-            sum -= nums[a_runner];
+            sum -= nums[i - k];
             sum += nums[i];
 
-            currAvSum = sum / k;
-            if (currAvSum > maxAvSum) {
-                maxAvSum = currAvSum;
-            }
-            currAvSum = 0;
-            a_runner++;
+            maxSum = Math.max(maxSum, sum);
         }
 
         /*
@@ -29,8 +21,8 @@ public class MaximumAverageSubarray_I {
                 currAvSum += nums[i];
             }
             currAvSum /= k;
-            if (currAvSum > maxAvSum) {
-                maxAvSum = currAvSum;
+            if (currAvSum > maxSum) {
+                maxSum = currAvSum;
             }
             currAvSum = 0;
             a_runner++;
@@ -38,7 +30,7 @@ public class MaximumAverageSubarray_I {
         }
         */
 
-        return maxAvSum;
+        return maxSum / k;
     }
 
     public static void main(String[] args) {
