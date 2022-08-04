@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import Node.TreeNode;
-
 public class BinaryTreeInorderTraversal {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
