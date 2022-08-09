@@ -42,9 +42,4 @@ public class FindFirstandLastPosition {
 
         return res;
     }
-
-    public static void main(String[] args) {
-        int[] n = {8,8,8,8};
-        System.out.println(searchRange(n, 8));
-    }
 }
