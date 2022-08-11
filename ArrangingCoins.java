@@ -17,8 +17,4 @@ public class ArrangingCoins {
         
         return row;
     }
-
-    public static void main(String[] args) {
-        System.out.println(arrangeCoins(1));
-    }
 }
