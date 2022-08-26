@@ -35,9 +35,4 @@ public class ValidParenthesis {
         }
         return false;
     }
-
-    public static void main(String[] args) {
-        ValidParenthesis s = new ValidParenthesis();
-        System.out.println(s.isValid("(([]))"));
-    }
 }

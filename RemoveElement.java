@@ -21,13 +21,4 @@ public class RemoveElement {
         }
         return nums.length - k;
     }
-
-    public static void main(String[] args) {
-        RemoveElement e = new RemoveElement();
-        int[] a = {4};
-        System.out.println(e.removeElement(a, 4));
-        for (int i : a) {
-            System.out.print(i + " ");
-        }
-    }
 }

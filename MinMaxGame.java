@@ -17,9 +17,4 @@ public class MinMaxGame {
 
         return nums[0];
     }
-
-    public static void main(String[] args) {
-        MinMaxGame obj = new MinMaxGame();
-        System.out.println(obj.minMaxGame(new int[] {3}));
-    }
 }

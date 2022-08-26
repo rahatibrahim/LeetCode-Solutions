@@ -20,9 +20,4 @@ public class LongestCommonPrefix {
         }
         return res;
     }
-
-    public static void main(String[] args) {
-        LongestCommonPrefix l = new LongestCommonPrefix();
-        System.out.println(l.longestCommonPrefix(new String[] {"dog","racecar","car"}));
-    }
 }

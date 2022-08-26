@@ -47,9 +47,3 @@ class RomanToInteger {
         return total;
     }
 }
-
-public class RomanToIntegerTest {
-    public static void main(String[] args) {
-        System.out.println(RomanToInteger.romanToInt("III"));
-    }
-}
