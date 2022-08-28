@@ -1,23 +1,8 @@
 public class Test {
-    public static String removeDigit(String number, char digit) {
-        String max = "0", curr = "0";
-        StringBuilder numArray = new StringBuilder(number);
-
-        for (int i = 0; i < number.length(); i++) {
-            if (number.charAt(i) == digit) {
-                numArray.deleteCharAt(i);
-                curr = numArray.toString();
-                if(curr.compareTo(max) > 0)
-                    max = curr;
-                numArray.insert(i, number.charAt(i));
-            }
-        }
-
-        return max;
-    }
 
     public static void main(String[] args) {
-        String str = "1231";
-        System.out.println(removeDigit(str, '1'));
+        char s = '3';
+        int d = s - '0';
+        System.out.println(d);
     }
 }
