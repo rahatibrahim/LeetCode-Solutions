@@ -31,9 +31,4 @@ public class UniqueBinarySearchTrees {
 
         return total;
     }
-
-    public static void main(String[] args) {
-        UniqueBinarySearchTrees t = new UniqueBinarySearchTrees();
-        System.out.println(t.numTrees(4));
-    }
 }
