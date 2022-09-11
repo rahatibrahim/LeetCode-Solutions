@@ -1,66 +1,37 @@
-import java.util.HashSet;
-
 public class NumberOfIslands {
-    HashSet<String> visited = new HashSet<>();
+    int count = 0;
 
     public int numIslands(char[][] grid) {
-        int island = 0;
-        int nOfRow = grid.length + 2;
-        int nOfCol = grid[0].length + 2;
-        char[][] ocean = new char[nOfRow][nOfCol];
-
-        for (int i = 0; i < nOfRow; i++) {
-            for (int j = 0; j < nOfCol; j++) {
-                if (i == 0
-                        || j == 0
-                        || i == nOfRow - 1
-                        || j == nOfCol - 1) {
-                    ocean[i][j] = '0';
-                    System.out.print(0 + " ");
-                } else {
-                    ocean[i][j] = grid[i - 1][j - 1];
-                    System.out.print(ocean[i][j] + " ");
-                }
-            }
-            System.out.println();
-        }
-
-        for (int row = 1; row < nOfRow - 1; row++) {
-            for (int col = 1; col < nOfCol - 1; col++) {
-                String location = row + "," + col;
-                String right = row + "," + (col + 1);
-                String bot = (row + 1) + "," + col;
-
-                if (ocean[row][col] == '1') {
-                    if (!visited.contains(location) && !hasVisitedNeighbor(row, col, visited)) {
-                        island++;
-                        visited.add(location);
-                    }
-
-                    if (ocean[row][col + 1] == '1')
-                        visited.add(right);
-                    if (ocean[row + 1][col] == '1')
-                        visited.add(bot);
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (grid[i][j] == '1') {
+                    dfs(i, j, grid);
+                    count++;
                 }
             }
         }
 
-        return island;
+        return count;
     }
 
-    public static boolean hasVisitedNeighbor(int row, int col, HashSet<String> visited) {
-        String top = (row - 1) + "," + col;
-        String bot = (row + 1) + "," + col;
-        String right = row + "," + (col + 1);
-        String left = row + "," + (col - 1);
+    public void dfs(int i, int j, char[][] grid) {
+        if (i < 0 || i > grid.length - 1 || j < 0 || j > grid[0].length - 1)
+            return;
 
-        return visited.contains(top) || visited.contains(bot)
-                || visited.contains(right) || visited.contains(left);
+        if (grid[i][j] == '1') {
+            grid[i][j] = '#';
+            dfs(i, j - 1, grid);
+            dfs(i, j + 1, grid);
+            dfs(i + 1, j, grid);
+            dfs(i - 1, j, grid);
+        }
     }
 
     public static void main(String[] args) {
         NumberOfIslands obj = new NumberOfIslands();
-        char[][] grid = {{'1','0','1','1','1'},{'1','0','1','0','1'},{'1','1','1','0','1'}};
-        obj.numIslands(grid);
+        char[][] grid = { { '1', '0', '1', '1', '1' },
+                { '1', '0', '1', '0', '1' },
+                { '1', '1', '1', '0', '1' } };
+        System.out.println(obj.numIslands(grid));
     }
 }
